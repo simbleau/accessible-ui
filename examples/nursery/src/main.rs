@@ -1,0 +1,77 @@
+use accessible_ui::prelude::*;
+use gloo_dialogs::alert;
+use yew::prelude::*;
+mod mocks;
+
+#[function_component(Root)]
+pub fn view() -> Html {
+    html! {
+        <ContextProvider<AuiSpec> context={ AuiSpec::default() } >
+            <App />
+        </ContextProvider<AuiSpec>>
+    }
+}
+
+#[derive(Properties, PartialEq)]
+struct WrapperProps {
+    children: Children,
+}
+
+#[function_component(Wrapper)]
+fn view(props: &WrapperProps) -> Html {
+    html! {
+        <div style="display: inline-block">
+            {props.children.clone()}
+        </div>
+    }
+}
+
+#[function_component(App)]
+pub fn view() -> Html {
+    html! {
+        <div style="display: flex; flex-direction: column;" align="center">
+            <Wrapper>
+                <span style="font-size: 3em;">
+                    <Icon mask={IconMask::Sun} /> {"Icons will inherit their computed size"}
+                </span>
+            </Wrapper>
+            <Wrapper>
+                <span style="font-size: 2em;">
+                    <Icon mask={IconMask::Sun} /> {"Icons will inherit their computed size"}
+                </span>
+            </Wrapper>
+            <Wrapper>
+                <span style="font-size: 1em;">
+                    <Icon mask={IconMask::Sun} /> {"Icons will inherit their computed size"}
+                </span>
+            </Wrapper>
+            <Wrapper>
+                <Button onclick={Callback::from(|_| alert("Clicked"))}>{"Click me!"}</Button>
+            </Wrapper>
+            <Wrapper>
+                <Preformatted inner={"hello"} />
+            </Wrapper>
+            <Wrapper>
+                <Spinner />
+            </Wrapper>
+            <Wrapper>
+                <TapTarget mask={IconMask::Twitter} onclick={Callback::from(|_| alert("Clicked"))} />
+                <TapTarget mask={IconMask::GitHub} onclick={Callback::from(|_| alert("Clicked"))} />
+                <TapTarget mask={IconMask::LinkedIn} onclick={Callback::from(|_| alert("Clicked"))} />
+            </Wrapper>
+            <Wrapper>
+                <mocks::tabs::MockTabs />
+            </Wrapper>
+            <Wrapper>
+                <mocks::external_link::MockExternalLink />
+            </Wrapper>
+            <Wrapper>
+                <mocks::internal_link::MockInternalLink />
+            </Wrapper>
+        </div>
+    }
+}
+
+pub fn main() {
+    yew::Renderer::<Root>::new().render();
+}

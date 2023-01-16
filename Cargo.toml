@@ -1,6 +1,49 @@
 [package]
 name = "accessible-ui"
+description = "Accessible UI for Yew"
 version = "0.1.0"
+authors = ["Spencer C. Imbleau <spencer@imbleau.com>"]
 edition = "2021"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/simbleau/accessible-ui"
+keywords = [
+    "ui",
+    "web",
+    "yew"
+]
+categories = ["wasm", "web-programming"]
+readme = "README.md"
+
+[workspace]
+members = [
+    "examples/nursery"
+]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
 
 [dependencies]
+wasm-bindgen = "0.2.83"
+yew = "0.20.0"
+yew-router = "0.17.0"
+stylist = { version = "0.11.0", features = ["yew_integration"] }
+serde = "1.0.152"
+# TODO: Remove when stable
+cssugar = { git = "https://github.com/simbleau/cssugar", rev = "bf8b51ce7bf7c004f6ef2d05c220cbe7e9bb8a2b" }
+# TODO: Remove when stable
+themer = { git = "https://github.com/simbleau/themer", rev = "7cc811a4b1d7a2ca1a3c39ea348e6f5d90d6f03e" }
+
+gloo-utils = "0.1.6"
+[dependencies.web-sys]
+version = "0.3.60"
+features = [
+    "CssStyleDeclaration",
+    "Element",
+    "Window"
+]

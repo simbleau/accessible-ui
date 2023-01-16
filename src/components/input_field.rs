@@ -50,8 +50,11 @@ pub fn InputField(props: &InputFieldProps) -> Html {
 
     // Focus on hover
     let onmouseover = {
-        move |e: MouseEvent| {
-            _ = e.unchecked_into::<HtmlInputElement>().focus();
+        let input_ref = input_ref.clone();
+        move |_: MouseEvent| {
+            _ = input_ref
+                .cast::<HtmlInputElement>()
+                .and_then(|e| e.focus().ok());
         }
     };
 
@@ -62,6 +65,7 @@ pub fn InputField(props: &InputFieldProps) -> Html {
             <label for={rand_id.clone()}>{&props.label}</label>
             {": "}
             <input
+                name={&props.name}
                 ref={ input_ref }
                 class={ style }
                 onmouseover={ onmouseover }

@@ -28,6 +28,8 @@ fn view(props: &WrapperProps) -> Html {
 
 #[function_component(App)]
 pub fn view() -> Html {
+    let onsubmit = Callback::from(|_| gloo_dialogs::alert("form submitted"));
+
     html! {
         <div style="display: flex; flex-direction: column;" align="center">
             <Wrapper>
@@ -67,6 +69,17 @@ pub fn view() -> Html {
             </Wrapper>
             <Wrapper>
                 <mocks::internal_link::MockInternalLink />
+            </Wrapper>
+            <Wrapper>
+                <form id="myform" {onsubmit}>
+                    <InputField
+                        name="email"
+                        label="Email"
+                        placeholder="email"
+                        required={true}
+                    />
+                    <InputButton>{"Submit"}</InputButton>
+                </form>
             </Wrapper>
         </div>
     }

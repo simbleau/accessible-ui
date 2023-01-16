@@ -36,8 +36,7 @@ stylist = { version = "0.11.0", features = ["yew_integration"] }
 serde = "1.0.152"
 # TODO: Remove when stable
 cssugar = { git = "https://github.com/simbleau/cssugar", rev = "bf8b51ce7bf7c004f6ef2d05c220cbe7e9bb8a2b" }
-# TODO: Remove when stable
-themer = { git = "https://github.com/simbleau/themer", rev = "7cc811a4b1d7a2ca1a3c39ea348e6f5d90d6f03e" }
+fastrand = { version = "1.7.0" }
 
 gloo-utils = "0.1.6"
 [dependencies.web-sys]

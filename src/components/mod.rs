@@ -5,6 +5,12 @@ pub use tap_target::SIZE as TAPTARGET_SIZE;
 mod button;
 pub use button::Button;
 
+mod input_field;
+pub use input_field::InputField;
+
+mod input_button;
+pub use input_button::InputButton;
+
 mod spinner;
 pub use spinner::Spinner;
 

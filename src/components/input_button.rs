@@ -17,8 +17,8 @@ pub struct Props {
     pub class: Classes,
 }
 
-#[function_component(Button)]
-pub fn view(props: &Props) -> Html {
+#[function_component]
+pub fn InputButton(props: &Props) -> Html {
     let spec = use_spec();
 
     let style = css!(
@@ -40,6 +40,7 @@ pub fn view(props: &Props) -> Html {
 
     html! {
         <button
+            type="submit"
             class={classes!(props.class.clone(), style)}
             onclick={&props.onclick}
         >

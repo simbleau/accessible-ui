@@ -22,5 +22,5 @@ pub use tabs::{Tab, Tabs};
 mod icons;
 pub use icons::*;
 
-mod hyperlink;
-pub use hyperlink::*;
+mod links;
+pub use links::*;

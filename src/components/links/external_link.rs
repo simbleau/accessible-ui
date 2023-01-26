@@ -45,14 +45,14 @@ pub fn view(props: &ExternalLinkProps) -> Html {
                     <Icon
                         data_aui_id="linkicon"
                         mask={mask}
-                        class={classes!(css!("vertical-align: middle; margin-right: 3px;"))}
+                        class={classes!(css!("align-self: middle; margin-right: 3px;"))}
                     />
                 }
                 { props.children.clone() }
                 <Icon
                     data_aui_id="linkicon"
                     mask={ IconMask::Share }
-                    class={classes!(css!("vertical-align: baseline !important; margin-left: 3px;"))}
+                    class={classes!(css!("align-self: baseline; margin-left: 3px;"))}
                     scale={ 0.75 }
                 />
             </a>

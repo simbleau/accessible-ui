@@ -65,10 +65,14 @@ pub fn view() -> Html {
                 <mocks::tabs::MockTabs />
             </Wrapper>
             <Wrapper>
+                {"This text is baseline: "}
                 <mocks::external_link::MockExternalLink />
+                {"..."}
             </Wrapper>
             <Wrapper>
+                {"This text is baseline: "}
                 <mocks::internal_link::MockInternalLink />
+                {"..."}
             </Wrapper>
             <Wrapper>
                 <form id="myform" {onsubmit}>

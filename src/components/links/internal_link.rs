@@ -51,7 +51,7 @@ where
                     <Icon
                         data_aui_id="linkicon"
                         mask={mask}
-                        class={classes!(css!("vertical-align: middle; margin-right: 3px;"))}
+                        class={classes!(css!("align-self: middle; margin-right: 3px;"))}
                     />
                 }
                 { props.children.clone() }

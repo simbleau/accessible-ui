@@ -24,7 +24,8 @@ where
     Route: Routable + 'static,
 {
     let spec = use_spec();
-    let style = css! {
+
+    let hitbox_style = css! {
         & {
             display: inline-block;
         }
@@ -36,9 +37,15 @@ where
         }
     };
 
+    let link_css = css! {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    };
+
     html! {
-        <div class={style}>
-            <Link<Route> to={ props.to.clone() }>
+        <div class={hitbox_style}>
+            <Link<Route> to={ props.to.clone() } classes={link_css} >
                 if let Some(mask) = props.icon {
                     <Icon
                         data_aui_id="linkicon"

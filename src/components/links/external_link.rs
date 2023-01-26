@@ -13,6 +13,8 @@ pub struct ExternalLinkProps {
     pub children: Children,
     #[prop_or_default]
     pub icon: Option<IconMask>,
+    #[prop_or_default]
+    pub class: Classes,
 }
 
 #[styled_component(ExternalLink)]
@@ -38,7 +40,7 @@ pub fn view(props: &ExternalLinkProps) -> Html {
     };
 
     html! {
-        <div class={hitbox_style}>
+        <div class={classes!(hitbox_style, props.class.clone())}>
             <a href={ props.to.clone() } class={link_css} >
                 if let Some(mask) = props.icon {
                     <Icon

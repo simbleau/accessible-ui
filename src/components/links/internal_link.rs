@@ -16,6 +16,8 @@ where
     pub children: Children,
     #[prop_or_default]
     pub icon: Option<IconMask>,
+    #[prop_or_default]
+    pub class: Classes,
 }
 
 #[styled_component(InternalLink)]
@@ -44,7 +46,7 @@ where
     };
 
     html! {
-        <div class={hitbox_style}>
+        <div class={classes!(hitbox_style, props.class.clone())}>
             <Link<Route> to={ props.to.clone() } classes={link_css} >
                 if let Some(mask) = props.icon {
                     <Icon

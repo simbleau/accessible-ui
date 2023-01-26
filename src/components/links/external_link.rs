@@ -18,7 +18,8 @@ pub struct ExternalLinkProps {
 #[styled_component(ExternalLink)]
 pub fn view(props: &ExternalLinkProps) -> Html {
     let spec = use_spec();
-    let style = css! {
+
+    let hitbox_style = css! {
         & {
             display: inline-block;
         }
@@ -30,9 +31,15 @@ pub fn view(props: &ExternalLinkProps) -> Html {
         }
     };
 
+    let link_css = css! {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    };
+
     html! {
-        <div class={style}>
-            <a href={ props.to.clone() }>
+        <div class={hitbox_style}>
+            <a href={ props.to.clone() } class={link_css} >
                 if let Some(mask) = props.icon {
                     <Icon
                         data_aui_id="linkicon"

@@ -36,6 +36,7 @@ pub fn view(props: &ExternalLinkProps) -> Html {
     let link_css = css! {
         display: flex;
         flex-direction: row;
+        align-items: baseline;
     };
 
     html! {

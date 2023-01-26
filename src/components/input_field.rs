@@ -4,7 +4,6 @@ use crate::style_context::use_spec;
 use cssugar::prelude::*;
 use stylist::css;
 use stylist::yew::styled_component;
-use wasm_bindgen::JsCast;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 

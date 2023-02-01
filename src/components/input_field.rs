@@ -61,15 +61,14 @@ pub fn InputField(props: &InputFieldProps) -> Html {
 
     html! {
         <>
-            <label for={rand_id.clone()}>{&props.label}</label>
-            {": "}
+            <label id={rand_id.clone()}>{&props.label}{": "}</label>
             <input
                 name={&props.name}
                 ref={ input_ref }
                 class={ style }
                 onmouseover={ onmouseover }
                 aria-required={ if props.required { "true "} else { "false"} }
-                aria-labelled-by={rand_id}
+                aria-labelledby={rand_id}
                 placeholder={&props.placeholder}
             />
         </>

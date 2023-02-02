@@ -2,8 +2,8 @@ use accessible_ui::prelude::*;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-#[function_component(MockInternalLink)]
-pub fn view() -> Html {
+#[function_component]
+pub fn MockInternalLink() -> Html {
     html! {
         <BrowserRouter>
             <InternalLink<Route> to={Route::Nowhere} icon={IconMask::GitHub}>

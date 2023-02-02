@@ -11,12 +11,15 @@ const RADIO_WIDTH: Length = Length::Px(20.0);
 
 #[derive(Properties, PartialEq)]
 pub struct RadioButtonProps {
-    /// The checkbox field name in the form
+    /// The radiobutton name for forms
     pub name: AttrValue,
     /// The aria-label attribute
     pub label: AttrValue,
     #[prop_or_default]
     pub checked: bool,
+
+    #[prop_or_default]
+    pub onchange: Callback<Event>,
 }
 
 #[styled_component]
@@ -24,7 +27,7 @@ pub fn RadioButton(props: &RadioButtonProps) -> Html {
     let spec = use_spec();
     let radiobutton_ref = use_node_ref();
 
-    let style = css!{
+    let style = css! {
         cursor: pointer;
         text-align: center;
         min-width: ${RADIO_WIDTH};
@@ -38,8 +41,6 @@ pub fn RadioButton(props: &RadioButtonProps) -> Html {
         }
     };
 
-
-
     let rand_id: String = repeat_with(fastrand::alphanumeric).take(8).collect();
 
     html! {
@@ -51,6 +52,7 @@ pub fn RadioButton(props: &RadioButtonProps) -> Html {
                 class={ style }
                 aria-labelledby={rand_id.clone()}
                 checked={props.checked}
+                onchange={props.onchange.clone()}
             />
             <label id={rand_id}>{" "}{&props.label}</label>
         </>

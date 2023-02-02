@@ -1,8 +1,8 @@
 use accessible_ui::prelude::*;
 use yew::prelude::*;
 
-#[function_component(MockTabs)]
-pub fn view() -> Html {
+#[function_component]
+pub fn MockTabs() -> Html {
     let selected = use_state(|| TabChoice::A);
 
     let onchange = {

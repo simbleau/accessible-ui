@@ -2,8 +2,8 @@ use accessible_ui::prelude::*;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-#[function_component(MockExternalLink)]
-pub fn view() -> Html {
+#[function_component]
+pub fn MockExternalLink() -> Html {
     html! {
         <ExternalLink to={"https://github.com"} icon={IconMask::GitHub}>
             {"External Link (GitHub)"}

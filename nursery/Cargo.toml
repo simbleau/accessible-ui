@@ -4,7 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+accessible-ui = {path = ".."}
+stylist = { version = "0.12.0", features = ["yew_integration"] }
 yew = { version = "0.20.0", features = ["csr"] }
 yew-router = "0.17.0"
-accessible-ui = {path = "../.."}
 gloo-dialogs = "0.1.1"

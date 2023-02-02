@@ -2,11 +2,11 @@
 
 [build]
 # The index HTML file to drive the bundling process.
-target = "examples/nursery/index.html"
+target = "nursery/index.html"
 [watch]
 # Paths to watch. The `build.target`'s parent folder is watched by default.
 watch = [
-    "examples/nursery",
+    "nursery/src",
     "src"
 ]
 # Paths to ignore.

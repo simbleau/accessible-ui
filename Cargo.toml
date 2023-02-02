@@ -35,7 +35,7 @@ yew-router = "0.17.0"
 stylist = { version = "0.11.0", features = ["yew_integration"] }
 serde = "1.0.152"
 # TODO: Remove when stable
-cssugar = { git = "https://github.com/simbleau/cssugar", rev = "bf8b51ce7bf7c004f6ef2d05c220cbe7e9bb8a2b" }
+cssugar = { git = "https://github.com/simbleau/cssugar", rev = "e0c185a961eb3d1873efbb20c3375fda2e7d9a40" }
 fastrand = { version = "1.7.0" }
 
 gloo-utils = "0.1.6"

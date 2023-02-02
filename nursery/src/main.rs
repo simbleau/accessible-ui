@@ -1,16 +1,18 @@
 use accessible_ui::prelude::*;
 use component_container::ComponentContainer;
 use nav::Navigation;
-use stylist::yew::styled_component;
+use stylist::yew::{styled_component, Global};
 use yew::prelude::*;
 mod component_container;
 mod mocks;
 mod nav;
 
-#[function_component]
+#[styled_component]
 pub fn Root() -> Html {
+    let no_margins = css!("html,body {margin: 0;}");
     html! {
         <ContextProvider<AuiSpec> context={ AuiSpec::default() } >
+            <Global css={no_margins} />
             <App />
         </ContextProvider<AuiSpec>>
     }

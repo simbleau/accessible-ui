@@ -31,10 +31,12 @@ pub fn Navigation(props: &NavigationProps) -> Html {
     };
 
     let nav_css = css! {
+        margin: 0;
+        background-color: #dddddd;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        width: 200px;
+        min-width: 200px;
         overflow-y: auto;
     };
 

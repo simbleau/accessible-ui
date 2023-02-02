@@ -85,6 +85,20 @@ pub fn view() -> Html {
                     <InputButton>{"Submit"}</InputButton>
                 </form>
             </Wrapper>
+            <Wrapper>
+                <form id="myform">
+                    <CheckBox
+                        name="checkbox"
+                        label="Default True"
+                        checked={true}
+                    />
+                    <CheckBox
+                        name="checkbox2"
+                        label="Default False"
+                        checked={false}
+                    />
+                </form>
+            </Wrapper>
         </div>
     }
 }

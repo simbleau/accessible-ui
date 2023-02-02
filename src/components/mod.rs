@@ -11,6 +11,9 @@ pub use input_field::InputField;
 mod input_button;
 pub use input_button::InputButton;
 
+mod checkbox;
+pub use checkbox::CheckBox;
+
 mod spinner;
 pub use spinner::Spinner;
 

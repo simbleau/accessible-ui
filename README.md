@@ -13,6 +13,8 @@ Work in progress.
 
 ## TODO: Checklist
 - Checkbox
+- TextBox 
+- TextArea 
 - Radio Buttons
 - Images
 - Slider

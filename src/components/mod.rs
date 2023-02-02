@@ -14,6 +14,9 @@ pub use input_button::InputButton;
 mod checkbox;
 pub use checkbox::CheckBox;
 
+mod radio_button;
+pub use radio_button::RadioButton;
+
 mod spinner;
 pub use spinner::Spinner;
 

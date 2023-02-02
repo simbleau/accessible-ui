@@ -12,7 +12,7 @@ Work in progress.
 - We will eventually use an analytic framework like https://www.accessibilitychecker.org/ to score
 
 ## TODO: Checklist
-- Checkbox
+- Checkbox -Done
 - TextBox 
 - TextArea 
 - Radio Buttons

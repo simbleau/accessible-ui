@@ -93,9 +93,25 @@ pub fn view() -> Html {
                         checked={true}
                     />
                     <CheckBox
-                        name="checkbox2"
+                        name="checkbox"
                         label="Default False"
                         checked={false}
+                    />
+                </form>
+            </Wrapper>
+            <Wrapper>
+                <form id="myform">
+                    <RadioButton
+                        name="RadioButton"
+                        label="Option 1"
+                    />
+                    <RadioButton
+                        name="RadioButton"
+                        label="Option 2"
+                    />
+                    <RadioButton
+                        name="RadioButton"
+                        label="Option 3"
                     />
                 </form>
             </Wrapper>

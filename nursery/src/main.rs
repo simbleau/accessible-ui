@@ -26,10 +26,16 @@ pub fn App() -> Html {
         min-height: 100vh;
     };
 
+    let wrap_css = css! {
+        display: flex;
+    };
+
     html! {
         <div id="app" class={app_css}>
-            <Navigation selected={selected.clone()} />
-            <ComponentContainer {selected} />
+            <div id="wrap" class={wrap_css}>
+                <Navigation selected={selected.clone()} />
+                <ComponentContainer {selected} />
+            </div>
         </div>
     }
 }

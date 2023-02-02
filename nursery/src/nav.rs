@@ -1,5 +1,6 @@
 use crate::mocks::*;
 use accessible_ui::prelude::*;
+use stylist::yew::styled_component;
 use yew::prelude::*;
 
 #[derive(Properties, PartialEq)]
@@ -7,7 +8,7 @@ pub struct NavigationProps {
     pub selected: UseStateHandle<Html>,
 }
 
-#[function_component]
+#[styled_component]
 pub fn Navigation(props: &NavigationProps) -> Html {
     let mut items = vec![];
     items.push(("Button", html!(<button::MockButton />)));
@@ -29,22 +30,32 @@ pub fn Navigation(props: &NavigationProps) -> Html {
         }
     };
 
+    let nav_css = css! {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 200px;
+        overflow-y: auto;
+    };
+
     html! {
-        {
-            items.into_iter().map(|(name, item)| {
-                let change_selected = change_selected.clone();
-                html!{
-                    <RadioButton
-                        name={"selection"}
-                        label={name}
-                        onchange={Callback::from(
-                            move |_e| {
-                                change_selected(item.clone());
-                            }
-                        )}
-                    />
-                }
-            }).collect::<Html>()
-        }
+        <div class={nav_css}>
+            {
+                items.into_iter().map(|(name, item)| {
+                    let change_selected = change_selected.clone();
+                    html!{
+                        <RadioButton
+                            name={"selection"}
+                            label={name}
+                            onchange={Callback::from(
+                                move |_e| {
+                                    change_selected(item.clone());
+                                }
+                            )}
+                        />
+                    }
+                }).collect::<Html>()
+            }
+        </div>
     }
 }

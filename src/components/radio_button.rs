@@ -41,20 +41,29 @@ pub fn RadioButton(props: &RadioButtonProps) -> Html {
         }
     };
 
+    let container_css = css! {
+        display: inline-block;
+    };
+
+    let label_css = css! {
+        align-self: center;
+    };
+
     let rand_id: String = repeat_with(fastrand::alphanumeric).take(8).collect();
 
     html! {
-        <>
-            <input
-                type="radio"
-                name={&props.name}
-                ref={ radiobutton_ref }
-                class={ style }
-                aria-labelledby={rand_id.clone()}
-                checked={props.checked}
-                onchange={props.onchange.clone()}
-            />
-            <label id={rand_id}>{" "}{&props.label}</label>
-        </>
+        <span class={container_css}>
+            <div style="display: flex;">
+                <input
+                    type="radio"
+                    name={&props.name}
+                    ref={ radiobutton_ref }
+                    class={ style }
+                    aria-labelledby={rand_id.clone()}
+                    onchange={props.onchange.clone()}
+                />
+                <label id={rand_id} class={label_css}>{" "}{&props.label}</label>
+            </div>
+        </span>
     }
 }

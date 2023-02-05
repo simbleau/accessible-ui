@@ -15,6 +15,8 @@ pub struct Props {
     pub children: Children,
     #[prop_or_default]
     pub class: Classes,
+    #[prop_or_default]
+    pub obj_type: Option<AttrValue>,
 }
 
 #[function_component(Button)]
@@ -40,6 +42,7 @@ pub fn view(props: &Props) -> Html {
 
     html! {
         <button
+            type={&props.obj_type}
             class={classes!(props.class.clone(), style)}
             onclick={&props.onclick}
         >

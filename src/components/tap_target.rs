@@ -36,55 +36,39 @@ pub fn view(props: &Props) -> Html {
         None => spec.color,
     };
 
-    let style = css!(
-        r#"
-        & {
-            display: inline-block;
-            border: 0;
-            border-radius: 50%;
-            padding: 0;
-            align-items: center;
-            justify-content: center;
-            cursor:pointer;
+    let style = css! {
+        display: inline-block;
+        border: 0;
+        border-radius: 50%;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        cursor:pointer;
 
-            width: ${bgw};
-            height: ${bgh};
+        width: ${SIZE};
+        height: ${SIZE};
 
-            transition: background-color 0.5s;
-            background-color: ${bg};
-        }
+        transition: background-color 0.5s;
+        background-color: ${bg};
+
 
         &:hover {
-            background-color: ${bg_hover};
+            background-color: ${bg.darken(0.2)};
         }
 
         & > i {
-            transition: width 0.5s, height 0.5s;
+            transition: width 0.25s, height 0.25s;
             background: ${fg};
-            width: ${fgw};
-            height: ${fgh};
+            width: ${FG_SIZE * IconMask::aspect_ratio(props.mask)};
+            height: ${FG_SIZE};
         }
 
         &:hover > i {
-            background: ${fg_hover};
-            width: ${fgw_hover};
-            height: ${fgh_hover};
+            background: ${fg.lighten(0.2)};
+            width: ${FG_SIZE * IconMask::aspect_ratio(props.mask) * 1.25};
+            height: ${FG_SIZE * 1.25};
         }
-
-        "#,
-        /* Coloring */
-        bg = bg,
-        bg_hover = bg.darken(0.2),
-        fg = fg,
-        fg_hover = fg.lighten(0.2),
-        /* Sizing - Default */
-        bgw = SIZE,
-        bgh = SIZE,
-        fgw = FG_SIZE * IconMask::aspect_ratio(props.mask),
-        fgh = FG_SIZE,
-        fgw_hover = FG_SIZE * IconMask::aspect_ratio(props.mask) * 1.25,
-        fgh_hover = FG_SIZE * 1.25,
-    );
+    };
 
     html! {
         <button class={ classes!(style, props.class.clone()) }

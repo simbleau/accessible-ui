@@ -1,7 +1,4 @@
-use crate::{
-    components::{Icon, IconMask},
-    style_context::use_spec,
-};
+use crate::prelude::*;
 use cssugar::prelude::*;
 use stylist::css;
 use yew::prelude::*;

@@ -1,4 +1,4 @@
-use crate::{components::Spinner, style_context::use_spec};
+use crate::prelude::*;
 use cssugar::prelude::*;
 use stylist::yew::styled_component;
 use wasm_bindgen::JsCast;

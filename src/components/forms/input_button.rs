@@ -1,4 +1,4 @@
-use crate::components::Button;
+use crate::prelude::*;
 use yew::prelude::*;
 
 #[derive(Properties, PartialEq)]

@@ -22,6 +22,7 @@ pub fn Navigation(props: &NavigationProps) -> Html {
     items.push(("TapTargets", html!(<tap_targets::MockTapTarget />)));
     items.push(("Radio Button", html!(<radio_button::MockRadioButton />)));
     items.push(("Checkbox", html!(<checkbox::MockCheckbox />)));
+    items.push(("Text", html!(<text::MockText />)));
 
     let change_selected = {
         let selected = props.selected.clone();

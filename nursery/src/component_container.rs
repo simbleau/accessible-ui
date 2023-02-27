@@ -9,7 +9,7 @@ pub struct ComponentContainerProps {
 #[styled_component]
 pub fn ComponentContainer(props: &ComponentContainerProps) -> Html {
     let container_css = css! {
-        background-color: #ddffdd;
+        background-color: #575757;
         width: 100%;
     };
 

@@ -14,5 +14,6 @@ pub mod prelude {
     pub use crate::components::tabs::{Tab, Tabs};
     pub use crate::components::tap_target::TapTarget;
     pub use crate::components::text::Text;
+    pub use crate::components::slider::Slider;
     pub use crate::style_context::{use_spec, AuiSpec};
 }

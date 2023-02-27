@@ -10,3 +10,4 @@ pub mod spinner;
 pub mod tabs;
 pub mod tap_target;
 pub mod text;
+pub mod slider;

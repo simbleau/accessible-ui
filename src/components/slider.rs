@@ -59,11 +59,13 @@ pub fn Slider(props: &SliderProps) -> Html {
             border-radius: 22px;
             background: #5283ff;
             cursor: pointer;
+            
         }
-        ::-webkit-slider-thumb :: &:hover{
-            background: ${spec.color.alpha(0.9)};
-            border-radius: 50px;
-        }
+        //Does nothing currently, need to nest which is not allowed (yet)
+        // ::-webkit-slider-thumb :: &:hover{
+        //     background: ${spec.color.alpha(0.9)};
+        //     border-radius: 50px;
+        // }
         
     };
 

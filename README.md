@@ -13,17 +13,17 @@ Work in progress.
 
 ## TODO: Checklist
 - Checkbox -Done
-- TextBox 
+- TextBox
 - TextArea 
-- Radio Buttons
+- Radio Buttons -done
 - Images
-- Slider
+- Slider- WIP: need floating box for number, init value not working
 - Progress Bar
 - Search Bar
 - Accordions
 - Numeric Input Field
 - Date Picker
-- Tooltip
+- Tooltip-css props --N/A (use for slider?)
 - Badges
 - Popover/Snackbar/Toast
 - Forms (see Tabs for inspiration)

@@ -25,6 +25,7 @@ pub fn Navigation(props: &NavigationProps) -> Html {
     items.push(("Text", html!(<text::MockText />)));
     items.push(("Range-slider", html!(<slider::MockSlider />)));
     items.push(("Accordian", html!(<accordian::MockAccordian />)));
+    items.push(("ToolTip", html!(<tooltip::MockTooltip />)));
     items.sort_by(|i1, i2| i1.0.cmp(i2.0));
 
     let change_selected = {

@@ -1,22 +1,17 @@
 use crate::style_context::use_spec;
-use cssugar::prelude::*;
 use stylist::css;
 use yew::prelude::*;
-
-const BUTTON_BORDER_WIDTH: Length = Length::Px(1.0);
-const BUTTON_BORDER_RADIUS: Length = Length::Px(5.0);
-const BUTTON_PADDING: Length = Length::Px(8.0);
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
     #[prop_or_default]
     pub onclick: Callback<MouseEvent>,
+
+    pub title: AttrValue,
     #[prop_or_default]
     pub children: Children,
     #[prop_or_default]
     pub class: Classes,
-    #[prop_or_default]
-    pub active: bool,
     #[prop_or_default]
     pub obj_type: Option<AttrValue>,
 }
@@ -24,6 +19,7 @@ pub struct Props {
 #[function_component(Accordian)]
 pub fn view(props: &Props) -> Html {
     let spec = use_spec();
+    let active = use_state(|| false);
 
     let collapsible  = css!(
         background-color: #eee;
@@ -38,6 +34,30 @@ pub fn view(props: &Props) -> Html {
         &:hover {
             background: ${spec.color.alpha(0.1)};
         }
+    );
+
+    // let content =css!(
+    //     padding: 0 18px;
+    //     display: none;
+    //     overflow: hidden;
+    //     background-color: #f1f1f1;
+    // );
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    let active_style = css! (
+        background-color: #f00;
+
+        &:after {
+            content: "-"; /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: white;
+            float: right;
+            margin-left: 5px;
+        }
+    );
+    let inactive_style = css! (
+        background-color: #f0f;
+
         &:after {
             content: "+"; /* Unicode character for "plus" sign (+) */
             font-size: 13px;
@@ -47,28 +67,37 @@ pub fn view(props: &Props) -> Html {
         }
     );
 
-    let content =css!(
-        padding: 0 18px;
-        display: none;
-        overflow: hidden;
-        background-color: #f1f1f1;
-    );
+    let on_click_handler = {
+        let active = active.clone();
+        Callback::from(move |_| {
+            active.set(!*active);
+        })
+    };
 
-    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-    let active = css! (
-        background-color: #ccc;
-        &:active:after {
-            content: "-"; /* Unicode character for "minus" sign (-) */
-          }
+    let classes = classes!(
+        props.class.clone(),
+        collapsible,
+        if *active {
+            active_style
+        } else {
+            inactive_style
+        }
     );
 
     html! {
-        <button
-            type={&props.obj_type}
-            class={classes!(props.class.clone(), collapsible )}
-            onclick={&props.onclick}
-        >
-        { props.children.clone() }
-        </button>
+        <div id="accordian-group">
+            <button
+                type={&props.obj_type}
+                class={classes}
+                onclick={&on_click_handler}
+            >
+            { &props.title }
+            </button>
+            if *active {
+                <div class={classes!(props.class.clone())}>
+                    { props.children.clone() }
+                </div>
+            }
+        </div>
     }
 }

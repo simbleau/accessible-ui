@@ -7,7 +7,7 @@ pub fn MockTapTarget() -> Html {
 
     html! {
     <>
-        <TapTarget mask={IconMask::Twitter} onclick={onclick.clone()} />
+        <TapTarget mask={IconMask::Mastodon} onclick={onclick.clone()} />
         <TapTarget mask={IconMask::GitHub} onclick={onclick.clone()} />
         <TapTarget mask={IconMask::LinkedIn} {onclick} />
     </>

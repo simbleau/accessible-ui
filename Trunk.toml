@@ -5,10 +5,7 @@
 target = "nursery/index.html"
 [watch]
 # Paths to watch. The `build.target`'s parent folder is watched by default.
-watch = [
-    "nursery/src",
-    "src"
-]
+watch = ["nursery/src", "src"]
 # Paths to ignore.
 ignore = []
 
